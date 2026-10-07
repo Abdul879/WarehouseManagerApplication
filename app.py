@@ -59,8 +59,8 @@ register(app, db, auth, err, lambda: request.headers.get("X-Created-By") or ADMI
 def index():
     return send_from_directory(app.static_folder, "index.html")
 
+init_db()
 
 if __name__ == "__main__":
-    init_db()
-    print(f"\n  WMS running → http://127.0.0.1:5000   login: {ADMIN_USER} / {ADMIN_PASS}\n")
+    print(f"\n  WMS running → http://127.0.0.1:5000 ")
     app.run(host="0.0.0.0", port=5000, debug=False)
