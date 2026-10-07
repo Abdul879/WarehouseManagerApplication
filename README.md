@@ -2,7 +2,7 @@
 Sections: Dashboard · Warehouses · Suppliers · Items · Inventory · Purchase Orders · Sales Orders · API Reference
 
     pip install -r requirements.txt
-    python app.py          # http://127.0.0.1:5000  — username admin / password admin123
+    python app.py
 
 Env vars: WMS_USER, WMS_PASS, WMS_DB (sqlite path).
 There is no login API / token. Every REST call uses HTTP Basic auth (username + password), e.g. `curl -u admin:admin123 http://127.0.0.1:5000/api/items`.
