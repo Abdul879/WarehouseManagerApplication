@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: warehouse-manager
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: WMS_DB
+        value: wms
+      # Set these in the Render dashboard (never commit real values):
+      - key: WMS_MONGO_USER
+        sync: false
+      - key: WMS_MONGO_PASS
+        sync: false
+      - key: WMS_MONGO_HOST
+        sync: false
+      - key: WMS_MONGO_OPTIONS
+        sync: false
+      - key: WMS_USER
+        sync: false
+      - key: WMS_PASS
+        sync: false
